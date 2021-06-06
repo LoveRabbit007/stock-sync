@@ -1,0 +1,13 @@
+server:
+  port: 1989
+  servlet:
+    context-path: /stock
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: stock
+logging:
+  level:
+    org.springframework.data.mongodb.core: debug
