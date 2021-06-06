@@ -1,7 +1,7 @@
 server:
   port: 1989
   servlet:
-    context-path: /stock
+    context-path: /stocks
 spring:
   data:
     mongodb:
