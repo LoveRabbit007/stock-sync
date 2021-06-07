@@ -12,6 +12,8 @@ import com.jing.hang.utils.StringUtil;
 import com.jing.hang.vo.IncomeVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -20,6 +22,8 @@ import java.util.*;
 @Service
 public class StockFinanceServiceImpl implements StockFinanceService {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
     @Override
     public void stockIncome(IncomeVo incomeVo) {
@@ -126,203 +130,183 @@ public class StockFinanceServiceImpl implements StockFinanceService {
             });
 
             Optional.ofNullable(stock.get(23)).ifPresent(s -> {
-                stockInCome.setPrem_income(new BigDecimal(s.toString()));
-            });
-
-            Optional.ofNullable(stock.get(24)).ifPresent(s -> {
-                stockInCome.setOut_prem(new BigDecimal(s.toString()));
-            });
-
-            Optional.ofNullable(stock.get(25)).ifPresent(s -> {
-                stockInCome.setUne_prem_reser(new BigDecimal(s.toString()));
-            });
-            Optional.ofNullable(stock.get(26)).ifPresent(s -> {
-                stockInCome.setReins_income(new BigDecimal(s.toString()));
-            });
-
-            Optional.ofNullable(stock.get(27)).ifPresent(s -> {
-                stockInCome.setN_sec_tb_income(new BigDecimal(s.toString()));
-            });
-
-            Optional.ofNullable(stock.get(28)).ifPresent(s -> {
-                stockInCome.setN_sec_uw_income(new BigDecimal(s.toString()));
-            });
-
-            Optional.ofNullable(stock.get(29)).ifPresent(s -> {
-                stockInCome.setN_asset_mg_income(new BigDecimal(s.toString()));
-            });
-
-            Optional.ofNullable(stock.get(30)).ifPresent(s -> {
                 stockInCome.setOth_b_income(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(31)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(24)).ifPresent(s -> {
                 stockInCome.setFv_value_chg_gain(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(32)).ifPresent(s -> {
+            /**
+             * 投资收入
+             */
+            Optional.ofNullable(stock.get(25)).ifPresent(s -> {
                 stockInCome.setInvest_income(new BigDecimal(s.toString()));
             });
-
-            Optional.ofNullable(stock.get(33)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(26)).ifPresent(s -> {
                 stockInCome.setAss_invest_income(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(34)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(27)).ifPresent(s -> {
                 stockInCome.setForex_gain(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(35)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(28)).ifPresent(s -> {
                 stockInCome.setTotal_cogs(new BigDecimal(s.toString()));
             });
-            Optional.ofNullable(stock.get(36)).ifPresent(s -> {
+
+            Optional.ofNullable(stock.get(29)).ifPresent(s -> {
                 stockInCome.setOper_cost(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(37)).ifPresent(s -> {
+
+            Optional.ofNullable(stock.get(30)).ifPresent(s -> {
                 stockInCome.setInt_exp(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(38)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(31)).ifPresent(s -> {
                 stockInCome.setComm_exp(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(39)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(32)).ifPresent(s -> {
                 stockInCome.setBiz_tax_surchg(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(40)).ifPresent(s -> {
+
+            Optional.ofNullable(stock.get(33)).ifPresent(s -> {
                 stockInCome.setSell_exp(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(41)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(34)).ifPresent(s -> {
                 stockInCome.setAdmin_exp(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(42)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(35)).ifPresent(s -> {
                 stockInCome.setFin_exp(new BigDecimal(s.toString()));
             });
-
-            Optional.ofNullable(stock.get(43)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(36)).ifPresent(s -> {
                 stockInCome.setAssets_impair_loss(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(44)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(37)).ifPresent(s -> {
                 stockInCome.setPrem_refund(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(45)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(38)).ifPresent(s -> {
                 stockInCome.setCompens_payout(new BigDecimal(s.toString()));
             });
-            Optional.ofNullable(stock.get(46)).ifPresent(s -> {
+
+            Optional.ofNullable(stock.get(39)).ifPresent(s -> {
                 stockInCome.setReser_insur_liab(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(47)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(40)).ifPresent(s -> {
                 stockInCome.setDiv_payt(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(48)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(41)).ifPresent(s -> {
                 stockInCome.setReins_exp(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(49)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(42)).ifPresent(s -> {
                 stockInCome.setOper_exp(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(50)).ifPresent(s -> {
+
+            Optional.ofNullable(stock.get(43)).ifPresent(s -> {
                 stockInCome.setCompens_payout_refu(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(51)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(44)).ifPresent(s -> {
                 stockInCome.setInsur_reser_refu(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(52)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(45)).ifPresent(s -> {
                 stockInCome.setReins_cost_refund(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(53)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(46)).ifPresent(s -> {
                 stockInCome.setOther_bus_cost(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(54)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(47)).ifPresent(s -> {
                 stockInCome.setOperate_profit(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(55)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(48)).ifPresent(s -> {
                 stockInCome.setNon_oper_income(new BigDecimal(s.toString()));
             });
-            Optional.ofNullable(stock.get(56)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(49)).ifPresent(s -> {
                 stockInCome.setNon_oper_exp(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(57)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(50)).ifPresent(s -> {
                 stockInCome.setNca_disploss(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(58)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(51)).ifPresent(s -> {
                 stockInCome.setTotal_profit(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(59)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(52)).ifPresent(s -> {
                 stockInCome.setIncome_tax(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(60)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(53)).ifPresent(s -> {
                 stockInCome.setN_income(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(61)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(54)).ifPresent(s -> {
                 stockInCome.setN_income_attr_p(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(62)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(55)).ifPresent(s -> {
                 stockInCome.setMinority_gain(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(63)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(56)).ifPresent(s -> {
                 stockInCome.setOth_compr_income(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(64)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(57)).ifPresent(s -> {
                 stockInCome.setT_compr_income(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(65)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(58)).ifPresent(s -> {
                 stockInCome.setCompr_inc_attr_p(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(66)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(59)).ifPresent(s -> {
                 stockInCome.setCompr_inc_attr_m_s(new BigDecimal(s.toString()));
             });
 
 
-            Optional.ofNullable(stock.get(67)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(60)).ifPresent(s -> {
                 stockInCome.setEbit(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(68)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(61)).ifPresent(s -> {
                 stockInCome.setEbitda(new BigDecimal(s.toString()));
             });
 
 
-            Optional.ofNullable(stock.get(69)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(62)).ifPresent(s -> {
                 stockInCome.setInsurance_exp(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(70)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(63)).ifPresent(s -> {
                 stockInCome.setUndist_profit(new BigDecimal(s.toString()));
             });
 
-            Optional.ofNullable(stock.get(71)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(64)).ifPresent(s -> {
                 stockInCome.setDistable_profit(new BigDecimal(s.toString()));
             });
-            Optional.ofNullable(stock.get(72)).ifPresent(s -> {
+            Optional.ofNullable(stock.get(65)).ifPresent(s -> {
                 stockInCome.setUpdate_flag(s.toString());
             });
             stockInComes.add(stockInCome);
         }
+        mongoTemplate.insertAll(stockInComes);
     }
 
 }
