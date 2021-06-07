@@ -107,7 +107,7 @@ public class StockCompanyServiceImpl implements StockCompanyService {
             Optional.ofNullable(stock.get(15)).ifPresent(s->{
                 stockCompany.setBusinessScope(stock.get(15).toString());
             });
-
+            stockCompany.setId(stockCompany.getTsCode());
             stockCompanies.add(stockCompany);
         }
 

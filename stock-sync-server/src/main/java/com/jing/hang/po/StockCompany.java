@@ -22,6 +22,7 @@ public class StockCompany {
      * main_business	str	N	主要业务及产品
      * business_scope	str	N	经营范围
      */
+    private String id;
     private String tsCode;
     private String exchange;
     private String chairman;

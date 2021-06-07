@@ -5,6 +5,7 @@ public final class StringUtil {
         int begin = param.indexOf("(");
         param = param.substring(begin + 1);
         param = param.replace(")", "");
+        param = param.replace("id=null,", "");
         return param.replace("=null", "");
     }
 

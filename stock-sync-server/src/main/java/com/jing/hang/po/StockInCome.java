@@ -90,6 +90,8 @@ import java.math.BigDecimal;
 @Data
 public class StockInCome {
 
+    private String id;
+
     private String ts_code;
     private String ann_date;
     private String f_ann_date;
