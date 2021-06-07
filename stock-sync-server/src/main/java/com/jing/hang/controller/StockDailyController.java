@@ -22,7 +22,7 @@ public class StockDailyController {
 
 
     @PostMapping("/daily/stocks")
-    public void dailyStock(@RequestBody DailyVo dailyVo) {
+    public void dailyStock(@RequestBody DailyVo dailyVo) throws InterruptedException {
         String begin = "1990-12-01";
         Date date = DateHandUtil.parse(begin);
         Date date1 = new Date();
@@ -32,6 +32,7 @@ public class StockDailyController {
             dailyVo.setTradeDate(DateHandUtil.formatDate(date).replaceAll("-", ""));
             stockDailyService.dailyStock(dailyVo);
             date = DateHandUtil.plusTime(cal, Calendar.DAY_OF_MONTH, -1);
+            Thread.sleep(1000);
         }
     }
 
