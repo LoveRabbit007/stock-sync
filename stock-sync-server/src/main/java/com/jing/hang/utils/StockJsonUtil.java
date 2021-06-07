@@ -33,6 +33,7 @@ public final class StockJsonUtil {
                 }
                 lists.addAll(stocks);
                 flag++;
+                Thread.sleep(400);
             }
         } catch (Exception e) {
             e.printStackTrace();

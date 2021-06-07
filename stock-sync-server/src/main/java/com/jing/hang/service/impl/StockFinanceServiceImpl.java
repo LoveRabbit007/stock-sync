@@ -304,6 +304,7 @@ public class StockFinanceServiceImpl implements StockFinanceService {
             Optional.ofNullable(stock.get(65)).ifPresent(s -> {
                 stockInCome.setUpdate_flag(s.toString());
             });
+            stockInComes.add(stockInCome);
         }
         mongoTemplate.insertAll(stockInComes);
     }
